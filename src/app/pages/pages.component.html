@@ -1,0 +1,95 @@
+<div class="app">
+  <div class="app-body">
+    <div class="app-sidebar sidebar-slide-left" [class.show]="show">
+      <button type="button" class="btn btn-sidebar" (click)="show = !show">
+        <span class="x"></span>
+      </button>
+      <div class="sidebar-header">
+        <img src="assets/img/eu.jpg" class="user-photo">
+        <p class="username">Leandro Kenji Ishikawa</p>
+      </div>
+      <ul id="sidebar-nav" class="sidebar-nav" data-children=".sidebar-nav-group">
+        <li class="sidebar-nav-btn">
+          <a href="page.html" class="btn btn-block btn-outline-light">
+            Button link
+          </a>
+        </li>
+        <li class="sidebar-nav-group">
+          <a routerLink='/encomendas' class="sidebar-nav-link collapsed" data-toggle="collapse">
+            Encomendas
+          </a>
+          <ul id="first-group" class="collapse" data-parent="#sidebar-nav">
+            <li>
+              <a routerLink='/encomendas' class="sidebar-nav-link">
+                Consultar
+              </a>
+            </li>
+            <li>
+              <a routerLink='/encomendas' class="sidebar-nav-link">
+                Incluir
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="sidebar-nav-group">
+          <a href="#second-group" class="sidebar-nav-link collapsed" data-toggle="collapse">
+            Open second group
+          </a>
+          <ul id="second-group" class="collapse" data-parent="#sidebar-nav">
+            <li>
+              <a href="page.html" class="sidebar-nav-link">
+                Second group page 1
+              </a>
+            </li>
+            <li>
+              <a href="page.html" class="sidebar-nav-link">
+                Second group page 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="sidebar-footer">
+        <a data-toggle="tooltip" title="Settings">
+          <i class="fa fa-cog"></i>
+        </a>
+        <a routerLink='/logar' data-toggle="tooltip" title="Logout">
+          <i class="fa fa-power-off"></i>
+        </a>
+      </div>
+    </div>
+    <div class="app-content">
+      <nav class="navbar navbar-expand navbar-light bg-white">
+        <button type="button" class="btn btn-sidebar" (click)="show = !show">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="navbar-brand">Admin 4B</div>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="badge badge-pill badge-primary">3</span> <i class="far fa-bell"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="../../pages/content/notification.html" class="dropdown-item"><small class="dropdown-item-title">Lorem ipsum (today)</small><br><div>Lorem ipsum dolor sit amet...</div></a>
+              <div class="dropdown-divider"></div>
+              <a href="../../pages/content/notification.html" class="dropdown-item"><small class="text-secondary">Lorem ipsum (yesterday)</small><br><div>Lorem ipsum dolor sit amet...</div></a>
+              <div class="dropdown-divider"></div>
+              <a href="../../pages/content/notification.html" class="dropdown-item"><small class="text-secondary">Lorem ipsum (12/25/2017)</small><br><div>Lorem ipsum dolor sit amet...</div></a>
+              <div class="dropdown-divider"></div>
+              <a href="../../pages/content/notifications.html" class="dropdown-item dropdown-link">See all notifications</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Home</li>
+          <li class="breadcrumb-item active" aria-current="page">Library</li>
+        </ol>
+      </nav>
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
