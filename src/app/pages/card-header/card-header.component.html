@@ -1,0 +1,7 @@
+<div class="card-header">
+  CONSULTA DE ENCOMENDAS
+  <div class="w-menu">
+    <a *ngIf="minimize" (click)="minimize = !minimize" class="w-min w-op text-dark" title="Minimizar"><i class="fas fa-window-minimize"></i></a>
+    <a *ngIf="!minimize" (click)="minimize = !minimize" class="w-max w-op text-dark"title="Maximizar"><i class="far fa-window-maximize"></i></a>
+  </div>
+</div>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders.service';
+import { CardHeaderComponent } from '../card-header/card-header.component';
 
 @Component({
   selector: 'app-orders',
@@ -8,6 +9,7 @@ import { OrdersService } from 'src/app/services/orders.service';
 })
 export class OrdersComponent implements OnInit {
 
+  @ViewChild(CardHeaderComponent) chc;
   cb : any;
   data : any;
 

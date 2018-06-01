@@ -1,7 +1,7 @@
 <div class="app">
   <div class="app-body">
-    <div class="app-sidebar sidebar-slide-left" [class.show]="show">
-      <button type="button" class="btn btn-sidebar" (click)="show = !show">
+    <div class="app-sidebar sidebar-slide-left" [class.show]="showPage">
+      <button type="button" class="btn btn-sidebar" (click)="showPage = !showPage">
         <span class="x"></span>
       </button>
       <div class="sidebar-header">
@@ -60,10 +60,10 @@
     </div>
     <div class="app-content">
       <nav class="navbar navbar-expand navbar-light bg-white">
-        <button type="button" class="btn btn-sidebar" (click)="show = !show">
+        <button type="button" class="btn btn-sidebar" (click)="showPage = !showPage">
           <i class="fa fa-bars"></i>
         </button>
-        <div class="navbar-brand">Admin 4B</div>
+        <div class="navbar-brand">DATA CERTA</div>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,13 +80,7 @@
             </div>
           </li>
         </ul>
-      </nav>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">Home</li>
-          <li class="breadcrumb-item active" aria-current="page">Library</li>
-        </ol>
-      </nav>
+      </nav><br>
       <div class="container-fluid">
         <router-outlet></router-outlet>
       </div>

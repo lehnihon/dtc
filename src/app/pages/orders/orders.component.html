@@ -1,8 +1,8 @@
 <div class="card text-left">
-  <div class="card-header">
-    CONSULTA DE ENCOMENDAS
-  </div>
-  <div class="card-body">
+
+  <app-card-header></app-card-header>
+
+  <div *ngIf="chc.minimize"  class="card-body">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -21,36 +21,6 @@
       </div>
     </div>
   </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
-</div>
+</div><br>
 
-<div class="card text-left">
-  <div class="card-header">
-    RESULTADO
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-12">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>DESTINATARIO</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngIf="data.dados">
-              <td>{{data.dados.id}}</td>
-              <td>{{data.dados.destinatario}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
-</div>
+<app-order-search [dataChild]="data"></app-order-search>

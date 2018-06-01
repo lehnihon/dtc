@@ -6,11 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
-  show : any;
+  showPage : boolean = false;
 
-  constructor() {
-    this.show = false;
-  }
+  constructor() { }
 
   ngOnInit() {
   }
