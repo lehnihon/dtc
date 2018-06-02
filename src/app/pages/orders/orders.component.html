@@ -1,26 +1,21 @@
-<div class="card text-left">
-
-  <app-card-header></app-card-header>
-
-  <div *ngIf="chc.minimize"  class="card-body">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="cb">Código de barras</label>
-          <input [(ngModel)]="cb" type="text" name="codigodebarras"  id="cb" class="form-control">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="id">ID interno</label>
-          <input type="text" name="idinterno" id="id" class="form-control">
-        </div>
-      </div>
-      <div class="col-md-12">
-        <button (click)="pesquisar()" type="button" class="btn btn-dark">Pesquisar</button>
+<app-card [cardTitle]="cardTitle">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="cb">Código de barras</label>
+        <input [(ngModel)]="cb" type="text" name="codigodebarras"  id="cb" class="form-control">
       </div>
     </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="id">ID interno</label>
+        <input type="text" name="idinterno" id="id" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-12">
+      <button (click)="pesquisar()" type="button" class="btn btn-dark">Pesquisar</button>
+    </div>
   </div>
-</div><br>
+</app-card>
 
-<app-order-search [dataChild]="data"></app-order-search>
+<app-order-search *ngFor="let child of data" [dataChild]="child"></app-order-search>

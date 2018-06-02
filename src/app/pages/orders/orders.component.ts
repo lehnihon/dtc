@@ -1,6 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders.service';
-import { CardHeaderComponent } from '../card-header/card-header.component';
 
 @Component({
   selector: 'app-orders',
@@ -9,9 +8,9 @@ import { CardHeaderComponent } from '../card-header/card-header.component';
 })
 export class OrdersComponent implements OnInit {
 
-  @ViewChild(CardHeaderComponent) chc;
   cb : any;
-  data : any;
+  data : any = [];
+  cardTitle: String = "CONSULTA DE ENCOMENDAS";
 
   constructor(private ordersService: OrdersService) {
   }
@@ -22,7 +21,7 @@ export class OrdersComponent implements OnInit {
   pesquisar(){
     this.ordersService.getOrders(this.cb)
       .subscribe((data) => {
-        this.data = data;
+        this.data.unshift(data);
       });
   }
 

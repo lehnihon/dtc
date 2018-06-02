@@ -1,5 +1,4 @@
 import { Component, ViewChild, OnInit, Input } from '@angular/core';
-import { CardHeaderComponent } from '../../card-header/card-header.component';
 
 @Component({
   selector: 'app-order-search',
@@ -9,7 +8,6 @@ import { CardHeaderComponent } from '../../card-header/card-header.component';
 export class OrderSearchComponent implements OnInit {
 
   @Input() dataChild: any;
-  @ViewChild(CardHeaderComponent) chc;
 
   constructor() { }
 

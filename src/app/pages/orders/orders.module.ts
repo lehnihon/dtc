@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { OrdersRoutingModule } from './orders-routing.module';
 import { OrdersComponent } from './orders.component';
 import { OrderSearchComponent } from './order-search/order-search.component';
-import { CardHeaderComponent } from '../card-header/card-header.component';
+import { CardComponent } from '../card/card.component';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { CardHeaderComponent } from '../card-header/card-header.component';
   declarations: [
     OrdersComponent,
     OrderSearchComponent,
-    CardHeaderComponent
+    CardComponent
   ]
 })
 export class OrdersModule { }

@@ -1,25 +1,20 @@
-<div *ngIf="dataChild" class="card text-left">
-
-  <app-card-header></app-card-header>
-
-  <div *ngIf="chc.minimize" class="card-body">
-    <div class="row">
-      <div class="col-md-12">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>DESTINATARIO</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{dataChild.dados.id}}</td>
-              <td>{{dataChild.dados.destinatario}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<app-card *ngIf="dataChild" [cardTitle]="dataChild.dados.id" >
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>DESTINATARIO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{dataChild.dados.id}}</td>
+            <td>{{dataChild.dados.destinatario}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-</div>
+</app-card>
