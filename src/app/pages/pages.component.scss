@@ -1,5 +1,29 @@
-.app-content{
-	.app-pages{
-		padding:15px;
+.app-body{
+	.app-sidebar{
+		.sidebar-nav-link{
+			cursor:pointer;
+		}
+		.dropicon{
+
+			&:before{
+				-webkit-transform: rotate(90deg);
+		    -moz-transform: rotate(90deg);
+		    -ms-transform: rotate(90deg);
+		    transform: rotate(90deg);
+			}
+		}
 	}
+	.app-content{
+		nav{
+			.dropdown-toggle{
+				cursor:pointer;
+			}
+			ol.breadcrumb{
+				margin:0;
+			}
+		}
+		.app-pages{
+			padding:10px;
+		}
+	}	
 }

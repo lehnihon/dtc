@@ -10,7 +10,7 @@ export class OrdersComponent implements OnInit {
 
   cb : any;
   data : any = [];
-  cardTitle: String = "CONSULTA DE ENCOMENDAS";
+  cardTitle: String = "#";
 
   constructor(private ordersService: OrdersService) {
   }

@@ -15,7 +15,7 @@
           </a>
         </li>
         <li class="sidebar-nav-group">
-          <a routerLink='/encomendas' class="sidebar-nav-link collapsed" data-toggle="collapse">
+          <a #event (click)="dropdown($event)" class="sidebar-nav-link collapsed">
             Encomendas
           </a>
           <ul id="first-group" class="collapse" data-parent="#sidebar-nav">
@@ -32,7 +32,7 @@
           </ul>
         </li>
         <li class="sidebar-nav-group">
-          <a href="#second-group" class="sidebar-nav-link collapsed" data-toggle="collapse">
+          <a #event (click)="dropdown($event)" class="sidebar-nav-link collapsed">
             Open second group
           </a>
           <ul id="second-group" class="collapse" data-parent="#sidebar-nav">
@@ -66,7 +66,7 @@
         <div class="navbar-brand">DATA CERTA</div>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a #event (click)="notification($event)" class="nav-link dropdown-toggle">
               <span class="badge badge-pill badge-primary">3</span> <i class="far fa-bell"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
@@ -80,6 +80,11 @@
             </div>
           </li>
         </ul>
+      </nav>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">Encomendas</li>
+        </ol>
       </nav>
       <div class="app-pages container-fluid">
         <router-outlet></router-outlet>

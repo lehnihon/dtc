@@ -10,6 +10,7 @@ export class CardComponent implements OnInit {
 	minimize: boolean = true;
 	close: boolean = true;
 	@Input() cardTitle: string;
+	@Input() cardOp : any;
 
   constructor() { }
 

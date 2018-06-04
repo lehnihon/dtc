@@ -1,4 +1,4 @@
-<app-card *ngIf="dataChild" [cardTitle]="dataChild.dados.id" >
+<app-card *ngFor="let data of dataChild" [cardTitle]="data.dados.id" >
   <div class="row">
     <div class="col-md-12">
       <table class="table">
@@ -10,8 +10,8 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{dataChild.dados.id}}</td>
-            <td>{{dataChild.dados.destinatario}}</td>
+            <td>{{data.dados.id}}</td>
+            <td>{{data.dados.destinatario}}</td>
           </tr>
         </tbody>
       </table>

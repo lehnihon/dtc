@@ -18,4 +18,4 @@
   </div>
 </app-card>
 
-<app-order-search *ngFor="let child of data" [dataChild]="child"></app-order-search>
+<app-order-search *ngIf="data" [dataChild]="data"></app-order-search>
