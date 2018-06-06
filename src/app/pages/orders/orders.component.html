@@ -1,18 +1,18 @@
-<app-card [cardTitle]="cardTitle">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="form-group">
-        <label for="cb">Código de barras</label>
-        <input [(ngModel)]="cb" type="text" name="codigodebarras"  id="cb" class="form-control">
-      </div>
+<app-card [cardTitle]="cardTitle" [cardMessage]="cardMessage">
+  <div class="form-row">
+    <div class="col-md-6 form-group">
+      <label>Código de barras</label>
+      <input [(ngModel)]="cb" type="text" class="form-control">
     </div>
-    <div class="col-md-6">
-      <div class="form-group">
-        <label for="id">ID interno</label>
-        <input type="text" name="idinterno" id="id" class="form-control">
-      </div>
+    <div class="col-md-6 form-group">
+      <label>Nota Fiscal</label>
+      <input [(ngModel)]="nf" type="text" class="form-control">
     </div>
-    <div class="col-md-12">
+    <div class="col-md-6 form-group">
+      <label>Lista</label>
+      <input [(ngModel)]="nl" type="text" class="form-control">
+    </div>
+    <div class="col-md-12 form-group">
       <button (click)="pesquisar()" type="button" class="btn btn-dark">Pesquisar</button>
     </div>
   </div>

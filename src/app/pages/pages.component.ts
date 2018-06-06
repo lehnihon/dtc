@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-pages',
@@ -8,13 +10,21 @@ import { Component, OnInit } from '@angular/core';
 export class PagesComponent implements OnInit {
 
   showPage : boolean = false;
-
-  constructor() { }
+  route : string = '';
+  page = 4;
+  constructor(router : Router, location: Location) {
+    router.events.subscribe((val) => {
+      if(location.path() != ''){
+        this.route = location.path();
+      } else {
+        this.route = 'Home'
+      }
+    });
+  }
 
   ngOnInit() { }
 
   dropdown(event : any){
-  	console.log(event);
   	if(event.currentTarget.className == 'sidebar-nav-link collapsed dropicon'){
 			event.currentTarget.className  = "sidebar-nav-link collapsed";
   	}else{

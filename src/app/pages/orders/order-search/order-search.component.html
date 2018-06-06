@@ -1,17 +1,30 @@
-<app-card *ngFor="let data of dataChild" [cardTitle]="data.dados.id" >
+<app-order-details [order]="order"></app-order-details>
+<app-card *ngFor="let data of dataChild" [cardTitle]="'Notas: '+data.dados.length" >
   <div class="row">
     <div class="col-md-12">
       <table class="table">
         <thead>
           <tr>
             <th>ID</th>
+            <th>RA</th>
             <th>DESTINATARIO</th>
+            <th>DT EMI.</th>
+            <th>LISTA</th>
+            <th>BASE</th>
+            <th>STATUS</th>
+            <th>#</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{{data.dados.id}}</td>
-            <td>{{data.dados.destinatario}}</td>
+          <tr *ngFor="let dd of data.dados">
+            <td>{{dd.id}}</td>
+            <td>{{dd.ra}}</td>
+            <td>{{dd.destinatario | slice:0:20}}</td>
+            <td>{{dd.dtemissao | date:'dd/MM/yyyy'}}</td>
+            <td>{{dd.numlista}}</td>
+            <td>{{dd.entregador}}</td>
+            <td>{{dd.entrega | slice:0:20}}</td>
+            <td><a (click)="orderDetails(dd)"><i class="fas fa-search"></i></a></td>
           </tr>
         </tbody>
       </table>

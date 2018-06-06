@@ -8,10 +8,15 @@ import { Component, ViewChild, OnInit, Input } from '@angular/core';
 export class OrderSearchComponent implements OnInit {
 
   @Input() dataChild: any;
+  order: any;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  orderDetails(dd){
+    this.order = dd;
   }
 
 }

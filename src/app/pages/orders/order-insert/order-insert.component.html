@@ -1,0 +1,23 @@
+<app-card [cardTitle]="cardTitle">
+  <div class="form-row">
+    <div class="col-md-6 form-group">
+      <label>Código de barras</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-6 form-group">
+      <label>Id Interno</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-6 form-group">
+      <label>Nome</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-6 form-group">
+      <label>Endereço</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-12 form-group">
+      <button (click)="cadastrar()" type="button" class="btn btn-dark">Cadastrar</button>
+    </div>
+  </div>
+</app-card>
