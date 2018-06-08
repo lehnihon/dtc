@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -10,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   imports: [
     CommonModule,
     PagesRoutingModule,
+    FormsModule,
     NgbModule.forRoot()
   ],
   declarations: [
@@ -19,7 +21,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   exports: [
     CardComponent,
-    NgbModule
+    NgbModule,
+    FormsModule
   ]
 })
 export class PagesModule { }

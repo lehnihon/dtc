@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardComponent implements OnInit {
 
 	minimize: boolean = true;
+  close: boolean = true;
 	@Input() cardTitle: string;
   @Input() cardMessage: string;
 	@Input() cardOp : any;

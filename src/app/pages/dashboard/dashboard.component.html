@@ -13,4 +13,18 @@
       </div>
     </app-card>
   </div>
+  <div class="col-md-6">
+    <app-card [cardTitle]="'#'">
+      <div *ngIf="chartc">
+        <canvas id="canvasc">{{ chartc }}</canvas>
+      </div>
+    </app-card>
+  </div>
+  <div class="col-md-6">
+    <app-card [cardTitle]="'#'">
+      <div *ngIf="chartd">
+        <canvas id="canvasd">{{ chartd }}</canvas>
+      </div>
+    </app-card>
+  </div>
 </div>

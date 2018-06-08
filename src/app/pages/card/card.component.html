@@ -1,10 +1,10 @@
-<div *ngIf="!close" class="card text-left fadeInRight">
+<div *ngIf="close" class="card text-left fadeInRight">
   <div class="card-header">
 	  {{cardTitle}}
 	  <div class="w-menu">
 	    <a *ngIf="minimize" (click)="minimize = !minimize" class="w-min w-op text-dark" title="Minimizar"><i class="fas fa-window-minimize"></i></a>
 	    <a *ngIf="!minimize" (click)="minimize = !minimize" class="w-max w-op text-dark" title="Maximizar"><i class="far fa-window-maximize"></i></a>
-	    <a (click)="close = true" class="w-cls w-op text-dark" title="Fechar"><i class="fas fa-times"></i></a>
+	    <a (click)="close = !close" class="w-cls w-op text-dark" title="Fechar"><i class="fas fa-times"></i></a>
 	  </div>
 	</div>
   <div *ngIf="minimize"  class="card-body fadeIn">
