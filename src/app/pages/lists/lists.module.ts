@@ -6,6 +6,7 @@ import { PagesModule } from '../pages.module';
 import { ListsComponent } from './lists.component';
 import { ListInsertComponent } from './list-insert/list-insert.component';
 import { ListSearchComponent } from './list-search/list-search.component';
+import { ListItemComponent } from './list-item/list-item.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { ListSearchComponent } from './list-search/list-search.component';
   declarations: [
     ListsComponent,
     ListInsertComponent,
-    ListSearchComponent
+    ListSearchComponent,
+    ListItemComponent
   ]
 })
 export class ListsModule { }

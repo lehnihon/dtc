@@ -13,7 +13,7 @@ export class OrderInsertComponent implements OnInit {
   ngOnInit() {
   }
 
-  cadastrar(){
+  insert(){
   }
 
 }

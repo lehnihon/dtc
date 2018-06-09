@@ -1,3 +1,38 @@
-<p>
-  list-insert works!
-</p>
+<app-card [cardTitle]="'#'" [cardMessage]="cardMessage">
+  <div class="form-row">
+    <div class="col-md-4 form-group">
+      <label>Tipo Lista</label>
+      <select class="form-control">
+        <option value="">Selecione</option>
+      	<option *ngFor="let dt of tl">{{dt}}</option>
+      </select>
+    </div>
+    <div class="col-md-4 form-group">
+      <label>Base</label>
+      <select class="form-control">
+        <option value="">Selecione</option>
+      	<option *ngFor="let dt of bs">{{dt}}</option>
+      </select>
+    </div>
+    <div class="col-md-4 form-group">
+    	<label>Lista</label>
+    	<div class="input-group">
+	      <input [(ngModel)]="nl" type="text" class="form-control">
+	      <div class="input-group-append">
+			    <button (click)="newList()" type="button" class="btn btn-dark"><i class="far fa-plus-square"></i></button>
+			  </div>
+			</div>
+    </div>
+    <div class="col-md-12 form-group">
+      <label>Código de Barras</label>
+      <input #cb (keyup.enter)="insert(cb)" type="text" class="form-control">
+    </div>
+    <div class="col-md-12 form-group">
+    	<button (click)="insert(cb)" type="button" class="btn btn-dark">Incluir</button>
+    </div>
+  </div>
+</app-card>
+
+<app-list-item [dataChild]="data"></app-list-item>
+
+

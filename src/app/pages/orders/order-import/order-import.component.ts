@@ -13,7 +13,7 @@ export class OrderImportComponent implements OnInit {
   ngOnInit() {
   }
 
-  importar(){
+  import(){
     
   }
 

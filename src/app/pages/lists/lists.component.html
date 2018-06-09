@@ -2,7 +2,7 @@
   <div class="form-row">
     <div class="col-md-6 form-group">
       <label>Lista</label>
-      <input [(ngModel)]="lista" type="text" class="form-control">
+      <input [(ngModel)]="nl" type="text" class="form-control">
     </div>
 
     <div class="col-md-12 form-group">
@@ -10,3 +10,5 @@
     </div>
   </div>
 </app-card>
+
+<app-list-search *ngIf="data" [dataChild]="data"></app-list-search>

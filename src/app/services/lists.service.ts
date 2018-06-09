@@ -8,7 +8,7 @@ export class ListsService {
 
   constructor(private http: HttpClient) {}
 
-  getLists(l){
-    return this.http.get('http://34.200.50.59/api/lista.php?numlista='+l);
+  getLists(nl){
+    return this.http.get('http://34.200.50.59/api/lista.php?numlista='+nl);
   }
 }

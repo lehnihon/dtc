@@ -22,7 +22,7 @@ export class OrdersComponent implements OnInit {
   ngOnInit() {
   }
 
-  pesquisar(){
+  search(){
     this.ordersService.getOrders(this.cb,this.nf,this.nl)
       .subscribe((data:DtcData) => {
         this.cardMessage = '';

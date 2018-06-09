@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-list-search',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-search.component.scss']
 })
 export class ListSearchComponent implements OnInit {
+
+	@Input() dataChild: any;
 
   constructor() { }
 

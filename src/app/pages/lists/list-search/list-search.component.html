@@ -1,3 +1,32 @@
-<p>
-  list-search works!
-</p>
+<app-card *ngFor="let data of dataChild" [cardTitle]="'Notas: '+data.dados.length" >
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>RA</th>
+            <th>DESTINATARIO</th>
+            <th>DT EMI.</th>
+            <th>LISTA</th>
+            <th>BASE</th>
+            <th>STATUS</th>
+            <th>#</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dd of data.dados">
+            <td>{{dd.id}}</td>
+            <td>{{dd.ra}}</td>
+            <td>{{dd.destinatario | slice:0:20}}</td>
+            <td>{{dd.dtemissao | date:'dd/MM/yyyy'}}</td>
+            <td>{{dd.numlista}}</td>
+            <td>{{dd.entregador}}</td>
+            <td>{{dd.entrega | slice:0:20}}</td>
+            <td><a (click)="orderDetails(dd,content)"><i class="fas fa-search"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</app-card>
