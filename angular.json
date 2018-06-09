@@ -28,7 +28,6 @@
             ],
             "styles": [
               "src/assets/css/fontawesome-all.min.css",
-              "src/assets/css/simple-line-icons.css",
               "src/assets/css/admin4b.min.css",
               "src/styles.scss"
             ],

@@ -1,17 +1,59 @@
-<app-card *ngFor="let data of dataChild" [cardTitle]="data.dados.id" >
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{order.id}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12"><label>Remetente: </label>{{order.remetente}}</div>
+      <div class="col-md-12"><label>Data Emissão: </label>{{order.dtemissao}}</div>
+      <div class="col-md-12"><label>Peso: </label>{{order.peso}}</div>
+      <div class="col-md-12"><label>Lista:</label>{{order.numlista}}</div>
+      <div class="col-md-12"><label>Valor: </label>{{order.valor}}</div>
+      <div class="col-md-12"><label>Destinatario: </label>{{order.destinatario}}</div>
+      <div class="col-md-12"><label>Endereço: </label>{{order.endereco}}</div>
+      <div class="col-md-12"><label>Complemento: </label>{{order.complemento}}</div>
+      <div class="col-md-12"><label>Bairro: </label>{{order.bairro}}</div>
+      <div class="col-md-12"><label>Cidade: </label>{{order.cidade}}</div>
+      <div class="col-md-12"><label>UF: </label>{{order.uf}}</div>
+      <div class="col-md-12"><label>Telefone: </label>{{order.tel}}</div>
+      <div class="col-md-12"><label>Obs: </label>{{order.obs}}</div>
+      <div class="col-md-12"><label>Base: </label>{{order.entregador}}</div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <iframe class="ar" src="http://docs.google.com/gview?url=http://example.com/test/pdf/ex.pdf; ?>&embedded=true" style="width:608px; height:700px;" frameborder="0"></iframe>
+  </div>
+</ng-template>
+
+<app-card *ngFor="let data of dataChild" [cardTitle]="'Notas: '+data.dados.length" >
   <div class="row">
     <div class="col-md-12">
       <table class="table">
         <thead>
           <tr>
             <th>ID</th>
+            <th>RA</th>
             <th>DESTINATARIO</th>
+            <th>DT EMI.</th>
+            <th>LISTA</th>
+            <th>BASE</th>
+            <th>STATUS</th>
+            <th>#</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{{data.dados.id}}</td>
-            <td>{{data.dados.destinatario}}</td>
+          <tr *ngFor="let dd of data.dados">
+            <td>{{dd.id}}</td>
+            <td>{{dd.ra}}</td>
+            <td>{{dd.destinatario | slice:0:20}}</td>
+            <td>{{dd.dtemissao | date:'dd/MM/yyyy'}}</td>
+            <td>{{dd.numlista}}</td>
+            <td>{{dd.entregador}}</td>
+            <td>{{dd.entrega | slice:0:20}}</td>
+            <td><a (click)="orderDetails(dd,content)"><i class="fas fa-search"></i></a></td>
           </tr>
         </tbody>
       </table>

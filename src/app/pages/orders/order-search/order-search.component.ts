@@ -1,4 +1,5 @@
 import { Component, ViewChild, OnInit, Input } from '@angular/core';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-order-search',
@@ -8,10 +9,17 @@ import { Component, ViewChild, OnInit, Input } from '@angular/core';
 export class OrderSearchComponent implements OnInit {
 
   @Input() dataChild: any;
+  order: any;
+  closeResult: string;
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
+  }
+
+  orderDetails(dd, content){
+    this.order = dd;
+    this.modalService.open(content, { size: 'lg' });
   }
 
 }

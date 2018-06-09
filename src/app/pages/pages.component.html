@@ -9,9 +9,9 @@
         <p class="username">Leandro Kenji Ishikawa</p>
       </div>
       <ul id="sidebar-nav" class="sidebar-nav" data-children=".sidebar-nav-group">
-        <li class="sidebar-nav-btn">
-          <a href="page.html" class="btn btn-block btn-outline-light">
-            Button link
+        <li>
+          <a routerLink='/painel' class="sidebar-nav-link">
+            Painel
           </a>
         </li>
         <li class="sidebar-nav-group">
@@ -25,25 +25,81 @@
               </a>
             </li>
             <li>
-              <a routerLink='/encomendas' class="sidebar-nav-link">
+              <a routerLink='/encomendas/incluir' class="sidebar-nav-link">
                 Incluir
+              </a>
+            </li>
+            <li>
+              <a routerLink='/encomendas/importar' class="sidebar-nav-link">
+                Importar
               </a>
             </li>
           </ul>
         </li>
         <li class="sidebar-nav-group">
           <a #event (click)="dropdown($event)" class="sidebar-nav-link collapsed">
-            Open second group
+            Listas
           </a>
           <ul id="second-group" class="collapse" data-parent="#sidebar-nav">
             <li>
-              <a href="page.html" class="sidebar-nav-link">
-                Second group page 1
+              <a routerLink='/listas' class="sidebar-nav-link">
+                Consultar
               </a>
             </li>
             <li>
-              <a href="page.html" class="sidebar-nav-link">
-                Second group page 2
+              <a routerLink='/listas/incluir' class="sidebar-nav-link">
+                Inserir
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="sidebar-nav-group">
+          <a #event (click)="dropdown($event)" class="sidebar-nav-link collapsed">
+            Usuários
+          </a>
+          <ul id="second-group" class="collapse" data-parent="#sidebar-nav">
+            <li>
+              <a class="sidebar-nav-link">
+                Consultar
+              </a>
+            </li>
+            <li>
+              <a class="sidebar-nav-link">
+                Inserir
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="sidebar-nav-group">
+          <a #event (click)="dropdown($event)" class="sidebar-nav-link collapsed">
+            Mapa Rota
+          </a>
+          <ul id="second-group" class="collapse" data-parent="#sidebar-nav">
+            <li>
+              <a class="sidebar-nav-link">
+                Consultar
+              </a>
+            </li>
+            <li>
+              <a class="sidebar-nav-link">
+                Inserir
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="sidebar-nav-group">
+          <a #event (click)="dropdown($event)" class="sidebar-nav-link collapsed">
+            Faturamento
+          </a>
+          <ul id="second-group" class="collapse" data-parent="#sidebar-nav">
+            <li>
+              <a class="sidebar-nav-link">
+                Consultar
+              </a>
+            </li>
+            <li>
+              <a class="sidebar-nav-link">
+                Inserir
               </a>
             </li>
           </ul>
@@ -83,7 +139,7 @@
       </nav>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page">Encomendas</li>
+          <li class="breadcrumb-item active" aria-current="page">{{route}}</li>
         </ol>
       </nav>
       <div class="app-pages container-fluid">

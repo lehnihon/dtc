@@ -1,4 +1,4 @@
-<div *ngIf="close" class="card text-left">
+<div *ngIf="close" class="card text-left fadeInRight">
   <div class="card-header">
 	  {{cardTitle}}
 	  <div class="w-menu">
@@ -7,7 +7,8 @@
 	    <a (click)="close = !close" class="w-cls w-op text-dark" title="Fechar"><i class="fas fa-times"></i></a>
 	  </div>
 	</div>
-  <div *ngIf="minimize"  class="card-body">
+  <div *ngIf="minimize"  class="card-body fadeIn">
+    <ngb-alert *ngIf="cardMessage" (click)="cardMessage = ''">{{cardMessage}}</ngb-alert>
     <ng-content></ng-content>
   </div>
 </div>

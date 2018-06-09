@@ -8,7 +8,7 @@ export class OrdersService {
 
   constructor(private http: HttpClient) { }
 
-  getOrders(id) {
-    return this.http.get('http://34.200.50.59/api/index.php?id='+id);
+  getOrders(cb,nf,nl) {
+    return this.http.get('http://34.200.50.59/api/index.php?id='+cb+'&numnotafiscal='+nf+'&numlista='+nl);
   }
 }

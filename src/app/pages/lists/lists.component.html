@@ -1,0 +1,12 @@
+<app-card [cardTitle]="'#'" [cardMessage]="cardMessage">
+  <div class="form-row">
+    <div class="col-md-6 form-group">
+      <label>Lista</label>
+      <input [(ngModel)]="lista" type="text" class="form-control">
+    </div>
+
+    <div class="col-md-12 form-group">
+      <button (click)="pesquisar()" type="button" class="btn btn-dark">Pesquisar</button>
+    </div>
+  </div>
+</app-card>
