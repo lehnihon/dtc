@@ -1,5 +1,6 @@
 import { Component, ViewChild, OnInit, Input } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { DropboxService } from 'src/app/services/dropbox.service';
+import { DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-order-search',
@@ -10,16 +11,27 @@ export class OrderSearchComponent implements OnInit {
 
   @Input() dataChild: any;
   order: any;
-  closeResult: string;
+  droplink: any;
+  mldShow:boolean = true;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private dropboxService: DropboxService, private domSanitizer: DomSanitizer) { 
+    this.droplink = this.domSanitizer.bypassSecurityTrustResourceUrl('https://docs.google.com/viewer?url=http://example.com/test/pdf/ex.pdf&embedded=true')
+  }
 
   ngOnInit() {
   }
 
-  orderDetails(dd, content){
+  orderDetails(dd){
+    this.mldShow = false;
     this.order = dd;
-    this.modalService.open(content, { size: 'lg' });
+    this.dropboxService.getAR(dd.numlotedigital,dd.id)
+      .subscribe((data:any) => {
+        this.droplink = this.domSanitizer.bypassSecurityTrustResourceUrl('https://docs.google.com/viewer?url='+data.link+'&embedded=true');
+      });
+  }
+
+  mdlBtn(stateBtn){
+    this.mldShow = stateBtn;
   }
 
 }

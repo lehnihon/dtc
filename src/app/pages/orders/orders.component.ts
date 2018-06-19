@@ -13,8 +13,8 @@ export class OrdersComponent implements OnInit {
   nf: any = '';
   nl: any = '';
   data : any = [];
-  cardTitle: String = "#";
   cardMessage: String;
+  cardMessageType : String;
 
   constructor(private ordersService: OrdersService) {
   }
@@ -26,10 +26,14 @@ export class OrdersComponent implements OnInit {
     this.ordersService.getOrders(this.cb,this.nf,this.nl)
       .subscribe((data:DtcData) => {
         this.cardMessage = '';
-        if(data.dados != null)
+        if(data.dados != null){
           this.data.unshift(data);
-        else
+          this.cardMessage = "Encomenda encontrada";
+          this.cardMessageType = "success";
+        }else{
           this.cardMessage = data.erro;
+          this.cardMessageType = "warning";
+        }
       });
   }
 

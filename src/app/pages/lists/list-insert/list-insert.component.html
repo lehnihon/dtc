@@ -1,17 +1,17 @@
-<app-card [cardTitle]="'#'" [cardMessage]="cardMessage">
+<app-card [cardTitle]="'#'" [cardMessage]="cardMessage" [cardMessageType]="cardMessageType">
   <div class="form-row">
     <div class="col-md-4 form-group">
       <label>Tipo Lista</label>
-      <select class="form-control">
+      <select [(ngModel)]="tl" class="form-control">
         <option value="">Selecione</option>
-      	<option *ngFor="let dt of tl">{{dt}}</option>
+      	<option *ngFor="let dt of datatl" value="{{dt.id}}">{{dt.nome}}</option>
       </select>
     </div>
     <div class="col-md-4 form-group">
       <label>Base</label>
-      <select class="form-control">
+      <select [(ngModel)]="bs" class="form-control">
         <option value="">Selecione</option>
-      	<option *ngFor="let dt of bs">{{dt}}</option>
+      	<option *ngFor="let dt of databs" value="{{dt.id}}">{{dt.nome}}</option>
       </select>
     </div>
     <div class="col-md-4 form-group">
@@ -23,12 +23,25 @@
 			  </div>
 			</div>
     </div>
-    <div class="col-md-12 form-group">
+    <div class="col-md-6 form-group">
       <label>Código de Barras</label>
-      <input #cb (keyup.enter)="insert(cb)" type="text" class="form-control">
+      <input [(ngModel)]="cb" (keyup.enter)="insert()" type="text" class="form-control">
+    </div>
+    <div class="col-md-5 offset-md-1">
+      <label>Modo</label>
+      <div class="form-group">
+        <div class="custom-control custom-radio custom-control-inline">
+          <input [(ngModel)]="md" type="radio" id="customRadioInline1" name="mode" class="custom-control-input" [value]="1">
+          <label class="custom-control-label" for="customRadioInline1">Inserir</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input [(ngModel)]="md" type="radio" id="customRadioInline2" name="mode" class="custom-control-input" [value]="0">
+          <label class="custom-control-label" for="customRadioInline2">Remover</label>
+        </div>
+      </div>
     </div>
     <div class="col-md-12 form-group">
-    	<button (click)="insert(cb)" type="button" class="btn btn-dark">Incluir</button>
+    	<button (click)="insert()" type="button" class="btn btn-dark">Incluir</button>
     </div>
   </div>
 </app-card>

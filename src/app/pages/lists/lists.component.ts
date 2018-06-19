@@ -12,6 +12,7 @@ export class ListsComponent implements OnInit {
 	nl: any;
 	data : any = [];
   cardMessage: String;
+  cardMessageType : String;
 
   constructor(private listsService: ListsService) { }
 
@@ -22,10 +23,14 @@ export class ListsComponent implements OnInit {
     this.listsService.getLists(this.nl)
       .subscribe((data:DtcData) => {
         this.cardMessage = '';
-        if(data.dados != null)
+        if(data.dados != null){
           this.data.unshift(data);
-        else
+          this.cardMessage = "Lista encontrada";
+          this.cardMessageType = "success";
+        }else{
           this.cardMessage = data.erro;
+          this.cardMessageType = "warning";
+        }
       });
   }
 

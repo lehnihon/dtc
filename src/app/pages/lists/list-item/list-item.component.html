@@ -1,5 +1,30 @@
-<app-card *ngFor="let data of dataChild" [cardTitle]="data.l">
-  <div *ngFor="let d of data.d">
-    {{d}}
-  </div>
+<app-card *ngFor="let data of dataChild" [cardTitle]="data.lista">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>RA</th>
+        <th>DESTINATARIO</th>
+        <th>DT EMI.</th>
+        <th>LISTA</th>
+        <th>SETOR</th>
+        <th>BASE</th>
+        <th>STATUS</th>
+        <th>#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let n of data.notas">
+        <td>{{n.id}}</td>
+        <td>{{n.ra}}</td>
+        <td>{{n.destinatario | slice:0:20}}</td>
+        <td>{{n.dataemissao | date:'dd/MM/yyyy'}}</td>
+        <td>{{n.numlista}}</td>
+        <td>{{n.setor}}</td>
+        <td>{{n.entregador}}</td>
+        <td>{{n.status | slice:0:20}}</td>
+        <td><a><i class="fas fa-search"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
 </app-card>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
+import { DtcData } from 'src/app/classes/dtc-data';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,9 +10,16 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  login: any = '';
+  pass: any = '';
+
+  constructor(public router: Router, private usersService: UsersService) { }
 
   ngOnInit() {
+  }
+
+  loginUser(){
+    this.usersService.login(this.login,this.pass);
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ListsService } from 'src/app/services/lists.service';
+import { DtcData } from 'src/app/classes/dtc-data';
 
 @Component({
   selector: 'app-list-insert',
@@ -8,25 +10,72 @@ import { Component, OnInit } from '@angular/core';
 export class ListInsertComponent implements OnInit {
 
 	data : any = [];
-	nl : any;
-	bc : any;
-	tl: any = ["Saca Base","Devolução","Deposito"];
-	bs: any = ["Base 1","Base 2","Base 3"];
+  md : any = 1;
+  tl: any = '';
+  bs: any = '';
+  cb: any = '';
+  nl: any = '';
+	datatl : any;
+	databs: any;
   cardMessage: String;
+  cardMessageType: String;
 
-  constructor() {
-  	this.data.push({l:"1000",d:[1,2,3,4,5]});
-  	this.data.push({l:"1001",d:[1,2,3]});
+  constructor(private listsService: ListsService) {
+    this.listsService.getDefault()
+      .subscribe((data:DtcData) => {
+        this.datatl = data.dados.tipolista;
+        this.databs = data.dados.base
+      });
   }
 
   ngOnInit() {
   }
 
-  insert(cb : HTMLInputElement){
-  	this.bc = cb.value;
-  	cb.value = '';
+  insert(){
+    if(this.cb == ''){
+      this.cardMessage =  "Digite o código de barras";
+      this.cardMessageType = "warning";
+      return;
+    }
+    if(this.bs == ''){
+      this.cardMessage =  "Selecione uma base";
+      this.cardMessageType = "warning";
+      return;
+    }
+    if(this.tl == ''){
+      this.cardMessage = "Selecione um tipo de lista";
+      this.cardMessageType = "warning";
+      return;
+    }
+    this.listsService.insert(this.cb,this.bs,this.tl,this.nl,this.md)
+      .subscribe((data:DtcData) => {
+        if(data.dados != null){
+          if(this.md == '1'){
+            this.nl = data.dados.lista;
+            this.cardMessage = this.cb+": Inserido com sucesso";
+            this.cardMessageType = "success";
+            this.data[0] = data.dados;
+          }else{
+            this.cardMessage = this.cb+": Removido com sucesso";
+            this.cardMessageType = "success";
+          }
+          this.cb = '';
+        }else{
+          if(data.erro != null){
+            this.cardMessage = data.erro;
+            this.cardMessageType = "warning";
+          }
+        }
+      });
   }
 
-  newList(){}
+  newList(){
+   this.data.unshift(Array('1'));
+   this.nl = '';
+  }
+
+  newData(){
+    console.log('teste');
+  }
 
 }

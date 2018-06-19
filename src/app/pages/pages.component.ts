@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
+import { DtcUser } from 'src/app/classes/dtc-user';
 import { Location } from '@angular/common';
 
 @Component({
@@ -9,17 +11,16 @@ import { Location } from '@angular/common';
 })
 export class PagesComponent implements OnInit {
 
+  user: DtcUser = new DtcUser;
   showPage : boolean = false;
   route : string = '';
   page = 4;
-  constructor(router : Router, location: Location) {
-    router.events.subscribe((val) => {
-      if(location.path() != ''){
-        this.route = location.path();
-      } else {
-        this.route = 'Home'
-      }
-    });
+  constructor(router : Router, location: Location, private usersService: UsersService) {
+    if(!usersService.user.nome){
+      router.navigate(['/login']);
+    }else{
+      this.user = usersService.user;
+    }
   }
 
   ngOnInit() { }

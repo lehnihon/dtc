@@ -1,21 +1,19 @@
 <div class="page-sign">
-  <form class="form-sign">
+  <div class="form-sign">
     <h1 class="display-4 text-center mb-5">
       Logar
     </h1>
     <div class="form-group">
       <div class="label-floating">
-        <input id="username" type="text" class="form-control" placeholder="E-mail" autofocus>
-        <label for="username">Login</label>
+        <input [(ngModel)]="login" type="text" class="form-control" placeholder="E-mail" autofocus>
       </div>
     </div>
     <div class="form-group">
       <div class="label-floating">
-        <input id="password" type="password" class="form-control" placeholder="Password">
-        <label for="password">Senha</label>
+        <input [(ngModel)]="pass" type="password" class="form-control" placeholder="Password">
       </div>
     </div>
-    <a routerLink="/painel" class="btn btn-lg btn-primary btn-block">
+    <a (click)="loginUser()" class="btn btn-lg btn-primary btn-block">
       Logar
     </a>
     <div class="mt-3 mb-3 text-center">
@@ -28,5 +26,4 @@
         <a href="#">Criar conta</a>
       </p>
   </div>
-  </form>
 </div>

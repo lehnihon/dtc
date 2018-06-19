@@ -1,0 +1,37 @@
+.mdl-box{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  outline: 0;
+  background-color:rgba(0, 0, 0, 0.5);
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .mdl-content{
+    max-width: 96%;
+    position: relative;
+    top:2%;
+    margin:0 auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+    padding:25px;
+
+
+    .btn-close{
+      position:absolute;
+      right:0px;
+      top:0px;
+      padding:15px 25px;
+      z-index:10;
+    }
+    .btn-close:hover{
+      cursor:pointer;
+    }
+  }
+}

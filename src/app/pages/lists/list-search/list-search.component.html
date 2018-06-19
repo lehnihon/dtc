@@ -1,29 +1,27 @@
-<app-card *ngFor="let data of dataChild" [cardTitle]="'Notas: '+data.dados.length" >
+<app-card *ngFor="let data of dataChild" [cardTitle]="'Listas: '+data.dados.length" >
   <div class="row">
     <div class="col-md-12">
       <table class="table">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>RA</th>
-            <th>DESTINATARIO</th>
-            <th>DT EMI.</th>
             <th>LISTA</th>
-            <th>BASE</th>
-            <th>STATUS</th>
+            <th>DATA</th>
+            <th>TIPO</th>
+            <th>CLIENTE</th>
+            <th>BASE O.</th>
+            <th>BASE D.</th>
             <th>#</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let dd of data.dados">
-            <td>{{dd.id}}</td>
-            <td>{{dd.ra}}</td>
-            <td>{{dd.destinatario | slice:0:20}}</td>
-            <td>{{dd.dtemissao | date:'dd/MM/yyyy'}}</td>
-            <td>{{dd.numlista}}</td>
-            <td>{{dd.entregador}}</td>
-            <td>{{dd.entrega | slice:0:20}}</td>
-            <td><a (click)="orderDetails(dd,content)"><i class="fas fa-search"></i></a></td>
+          <tr *ngIf="data.dados">
+            <td>{{data.dados.numlista}}</td>
+            <td>{{data.dados.datalista | date:'dd/MM/yyyy'}}</td>
+            <td>{{data.dados.nometipolista | slice:0:20}}</td>
+            <td>{{data.dados.nomecliente | slice:0:20}}</td>
+            <td>{{data.dados.bso}}</td>
+            <td>{{data.dados.bsd}}</td>
+            <td><a><i class="fas fa-search"></i></a></td>
           </tr>
         </tbody>
       </table>

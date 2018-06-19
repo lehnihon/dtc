@@ -11,6 +11,7 @@ export class CardComponent implements OnInit {
   close: boolean = true;
 	@Input() cardTitle: string;
   @Input() cardMessage: string;
+  @Input() cardMessageType: string = "warning";
 	@Input() cardOp : any;
 
   constructor() { }

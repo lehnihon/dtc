@@ -1,10 +1,29 @@
-<app-card [cardTitle]="'#'" [cardMessage]="cardMessage">
+<app-card [cardTitle]="'#'" [cardMessage]="cardMessage" [cardMessageType]="cardMessageType">
   <div class="form-row">
     <div class="col-md-6 form-group">
       <label>Lista</label>
       <input [(ngModel)]="nl" type="text" class="form-control">
     </div>
-
+    <div class="col-md-6 form-group">
+      <label>Data</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-6 form-group">
+      <label>Base Origem</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-6 form-group">
+      <label>Base Destino</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-6 form-group">
+      <label>Tipo</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-6 form-group">
+      <label>Cliente</label>
+      <input type="text" class="form-control">
+    </div>
     <div class="col-md-12 form-group">
       <button (click)="pesquisar()" type="button" class="btn btn-dark">Pesquisar</button>
     </div>
